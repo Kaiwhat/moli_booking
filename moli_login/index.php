@@ -11,7 +11,6 @@
     crossorigin="anonymous"></script>
     <script>
         $(document).ready(function(){
-            // 获取当前日期和时间
             var now = new Date();
 
             var year = now.getFullYear();
@@ -22,10 +21,8 @@
 
             var currentDateTime = year + '-' + month + '-' + day + 'T' + hours + ':' + minutes;
 
-            // 将当前时间设置为输入字段的值
             document.getElementById('gobook-FromTime').value = currentDateTime;
 
-            // 表单提交
             $("form").submit(function(event){
                 event.preventDefault();
                 var stuid = $("#gobook-StuId").val();
@@ -48,10 +45,8 @@
                         submit: submit
                     },
                     success: function(response) {
-                        // 显示成功提交的对话框
                         alert("成功送出表單！");
 
-                        // 清空表单中的输入字段
                         $('#gobook-StuId').val('');
                         $('#gobook-FromTime').val('');
                         $('#gobook-ToTime').val('');
@@ -78,14 +73,14 @@
             <div class="timechoose">
                 <input id="gobook-FromTime" type="datetime-local" value="" required/>
                 <p>到</p>
-                <input id="gobook-ToTime"type="time" value="00:00" required/>
+                <input id="gobook-ToTime" type="time" value="00:00" required/>
             </div>
             <br>
-            <input id="gobook-Usage"type="text" placeholder="用途:" required>
+            <input id="gobook-Usage" type="text" placeholder="用途:" required>
             <br>
-            <input id="gobook-Email"type="email" placeholder="聯絡信箱:" required>
+            <input id="gobook-Email" type="email" placeholder="聯絡信箱:" required>
             <br>
-            <button id="gobook-Submit"type="submit" name="submit">Send</button>
+            <button id="gobook-Submit" type="submit" name="submit">Send</button>
             <a href="http://">(聯絡我們)</a>
             <p class="form-message"></p>
         </form>
