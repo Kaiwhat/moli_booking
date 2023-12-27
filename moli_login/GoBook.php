@@ -1,11 +1,46 @@
 <?php
-if(isset($_POST["submit"])) {
-    $stuid = $_POST["stuid"];
-    $fromtime = $_POST["fromtime"];
-    $totime = $_POST["totime"];
-    $usage = $_POST["usage"];
-    $email = $_POST["email"];
 
-    //echo "<script>alert('成功送出表單！');</script>";
-}  
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "molibooking";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // 設置 PDO 錯誤模式為例外
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // 獲取從表單 POST 過來的資料
+    if(isset($_POST["submit"])) {
+        $stuid = $_POST["stuid"];
+        $fromtime = $_POST["fromtime"];
+        $totime = $_POST["totime"];
+        $usage = $_POST["usage"];
+        $email = $_POST["email"];
+
+        // 準備 SQL 語句以插入資料
+        $sql = "INSERT INTO users (StuId, FromTime, ToTime, Use_for, Email) VALUES (:stuid, :fromtime, :totime, :usage, :email)";
+        
+        // 使用準備語句，防止 SQL 注入攻擊
+        $stmt = $conn->prepare($sql);
+        
+        // 繫結參數並執行語句
+        $stmt->bindParam(':stuid', $stuid);
+        $stmt->bindParam(':fromtime', $fromtime);
+        $stmt->bindParam(':totime', $totime);
+        $stmt->bindParam(':usage', $usage);
+        $stmt->bindParam(':email', $email);
+        
+        // 執行準備好的語句
+        $stmt->execute();
+
+        echo "資料已成功插入到資料庫中";
+    }
+}
+catch(PDOException $e) {
+    echo "錯誤：" . $e->getMessage();
+}
+
+// 關閉連接
+$conn = null;
 ?>
