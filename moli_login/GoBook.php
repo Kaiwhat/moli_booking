@@ -19,7 +19,7 @@ try {
         $email = $_POST["email"];
 
         // 準備 SQL 語句以插入資料
-        $sql = "INSERT INTO users (StuId, FromTime, ToTime, Use_for, Email) VALUES (:stuid, :fromtime, :totime, :usage, :email)";
+        $sql = "INSERT INTO users (StuId, FromTime, ToTime, Use_for, Email, Pass) VALUES (:stuid, :fromtime, :totime, :usage, :email, '待審核')";
         
         // 使用準備語句，防止 SQL 注入攻擊
         $stmt = $conn->prepare($sql);
