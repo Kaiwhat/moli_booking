@@ -17,6 +17,67 @@ body{
     height: 100vh;
 }
 
+.LoggingPage {
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    display: none;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
+}
+
+.RootPage {
+    margin: auto;
+    max-width: 350px;
+    margin-top: 15%;
+    margin-left: 40%;
+    padding: 10px;
+    position: absolute;
+    z-index: 2;
+    background-color: #fff;
+    border-radius: 30px;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+}
+
+.RootPage h1 {
+    padding-left: 10px;
+}
+
+.CloseButton {
+    position: absolute;
+    right: 10%;
+    font-size: 60px;
+    cursor: pointer;
+    color: #000;
+}
+
+.CloseButton :hover{
+    color: #ccc;
+}
+
+.LoggingPage form{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.LoggingPage input{
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    margin: 8px;
+    width: 80%;
+    outline: none;
+    font-size: 25px;
+    padding-left: 10px;
+}
+
 .calendar {
     width: 50%; /* 设置宽度 */
     height: 70%; /* 设置高度 */
@@ -26,10 +87,12 @@ body{
 }
 
 .main{
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center; /* 水平置中 */
     /*align-items: center; /* 垂直置中 */
+    position: relative;
 }
 
 .calendar iframe {
@@ -58,6 +121,19 @@ body{
     margin-top: 10px;
 }
 
+.LoggingPage input{
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    margin: 8px;
+    padding: 10 15px;
+    width: 80%;
+    outline: none;
+    font-size: 25px;
+    padding-left: 10px;
+}
+
 .Booking{
     margin-left: 20px;
     margin-top: 10px;
@@ -69,6 +145,7 @@ body{
     justify-content: center; /* 水平置中 */
     align-items: center; /* 垂直置中 */
     flex-direction: column;
+    position: relative;
 }
 
 .Booking button{
