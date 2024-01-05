@@ -65,25 +65,30 @@
         <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%234285F4&ctz=Asia%2FTaipei&src=YTA5MDM2MTM4MzRAZ21haWwuY29t&src=Y2xhc3Nyb29tMTE2NTM1NTQ2MTcyNDE1OTk5NzY3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=emgtdHcudGFpd2FuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%23202124&color=%230B8043" 
         ></iframe>
     </div>
-    <div class="Booking" id="Booking">
-        <h1>欲預約教室請填寫以下資訊</h1>
-        <form action="GoBook.php" method="post" >
-            <input id="gobook-StuId"type="text" placeholder="學號:" required>
-            <br>
-            <div class="timechoose">
-                <input id="gobook-FromTime" type="datetime-local" value="" required/>
-                <p>到</p>
-                <input id="gobook-ToTime" type="time" value="00:00" required/>
-            </div>
-            <br>
-            <input id="gobook-Usage" type="text" placeholder="用途:" required>
-            <br>
-            <input id="gobook-Email" type="email" placeholder="聯絡信箱:" required>
-            <br>
-            <button id="gobook-Submit" type="submit" name="submit">Send</button>
-            <a href="http://">(聯絡我們)</a>
-            <p class="form-message"></p>
-        </form>
+    <div class="main" id="main">
+        <div class="Logging" id="Logging">
+            <button>管理員請點此登入</button>
+        </div>
+        <div class="Booking" id="Booking">
+            <h1>欲預約教室請填寫以下資訊</h1>
+            <form action="GoBook.php" method="post" >
+                <input id="gobook-StuId"type="text" placeholder="學號:" required>
+                <br>
+                <div class="timechoose">
+                    <input id="gobook-FromTime" type="datetime-local" value="" required/>
+                    <p>到</p>
+                    <input id="gobook-ToTime" type="time" value="00:00" required/>
+                </div>
+                <br>
+                <input id="gobook-Usage" type="text" placeholder="用途:" required>
+                <br>
+                <input id="gobook-Email" type="email" placeholder="聯絡信箱:" required>
+                <br>
+                <button id="gobook-Submit" type="submit" name="submit">Send</button>
+                <a href="http://">(聯絡我們)</a>
+                <p class="form-message"></p>
+            </form>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
