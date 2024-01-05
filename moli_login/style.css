@@ -25,19 +25,46 @@ body{
     position: relative; /* 设置相对定位 */
 }
 
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 水平置中 */
+    /*align-items: center; /* 垂直置中 */
+}
+
 .calendar iframe {
     width: 100%; /* 让 iframe 宽度填充父容器 */
     height: 100%; /* 让 iframe 高度填充父容器 */
     border: none; /* 移除边框 */
 }
 
+.Logging{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Logging button{
+    margin-right: 15px;
+    color: #fff;
+    width: 25%;
+    border-width: 1px;
+    padding: 0.5rem;
+    border-color: #3d4f7c;
+    background-color: #3d4f7c;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
 .Booking{
     margin-left: 20px;
+    margin-top: 10px;
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0.35);
     overflow: hidden;
-    width: 40%;
     display: flex;
     justify-content: center; /* 水平置中 */
     align-items: center; /* 垂直置中 */
