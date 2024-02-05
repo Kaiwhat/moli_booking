@@ -73,10 +73,12 @@
                         submit: submit
                     },
                     success: function(response) {
-                        alert("成功送出表單！");
-
-                        $('#Login-Username').val('');
-                        $('#Login-Password').val('');
+                        if (response === "failure") {
+                            // 登录成功，执行相应操作
+                            alert("Access denied");
+                        }else{
+                            window.location.href = "Admin.php";
+                        }
                     }
                 });
             });
@@ -97,10 +99,10 @@
     <div id="LoggingPage" class="LoggingPage">
         <div class="RootPage">
             <span class="CloseButton" onclick="closeForm()" title="CloseOverlay">&#215</span>
-            <h1>管理者登入</h1>
-            <form id="RootForm" action="">
-                <input id="Login-User" type="text" placeholder="Username:" required>
-                <input if="Login-Password" type="text" placeholder="Password:" required>
+            <form id="RootForm" action="Login.php" method="post">
+                <h1>管理者登入</h1>
+                <input id="Login-User" type="text" placeholder="Username:">
+                <input id="Login-Password" type="password" placeholder="Password:">
                 <button id="Login-Submit" type="submit" name="submit">Send</button>
             </form>
         </div>
@@ -116,7 +118,7 @@
         <div class="Booking" id="Booking">
             <h1>欲預約教室請填寫以下資訊</h1>
             <form id="BookingForm" action="GoBook.php" method="post" >
-                <input id="gobook-StuId"type="text" placeholder="學號:" required>
+                <input id="gobook-StuId"type="text" placeholder="學號:" required autofocus>
                 <br>
                 <div class="timechoose">
                     <input id="gobook-FromTime" type="datetime-local" value="" required/>

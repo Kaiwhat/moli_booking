@@ -47,6 +47,15 @@ body{
     padding-left: 10px;
 }
 
+.error {
+    background: #F2DEDE;
+    color: #A94442;
+    padding: 10px;
+    width: 95%;
+    border-radius: 5px;
+    margin: 20px auto;
+ }
+
 .CloseButton {
     position: absolute;
     right: 10%;

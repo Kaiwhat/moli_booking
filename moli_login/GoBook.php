@@ -1,15 +1,9 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "molibooking";
+session_start(); 
+include "db_connect.php";
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // 設置 PDO 錯誤模式為例外
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     // 獲取從表單 POST 過來的資料
     if(isset($_POST["submit"])) {
         $stuid = $_POST["stuid"];
