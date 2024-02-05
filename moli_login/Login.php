@@ -37,7 +37,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
                     $_SESSION['user_name'] = $row['user_name'];
                     $_SESSION['name'] = $row['name'];
                     $_SESSION['id'] = $row['id'];
-                    header("Location: Admin.php");
+                    header("Location: /moli_booking-main/moli_root/index.php");
                     exit();
                 } else {
                     echo "failure";

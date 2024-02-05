@@ -77,7 +77,7 @@
                             // 登录成功，执行相应操作
                             alert("Access denied");
                         }else{
-                            window.location.href = "Admin.php";
+                            window.location.href = "/moli_booking-main/moli_root/index.php";
                         }
                     }
                 });
