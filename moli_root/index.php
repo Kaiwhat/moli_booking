@@ -1,13 +1,13 @@
 <?php
+session_start();
+include "/moli_booking-main/moli_login/db_connect.php";
 
-$db_servername = "localhost";
-$db_username = "root";
-$db_password = "";
-$db_name = "molibooking";
+if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
+    header("Location: /moli_booking-main/moli_login/index.php");
+    exit();
+}
 
 try {
-    $conn = new PDO("mysql:host=$db_servername;dbname=$db_name", $db_username, $db_password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Your SQL query
     $query = "SELECT * FROM users";
@@ -31,6 +31,16 @@ catch(PDOException $e) {
     echo "錯誤：" . $e->getMessage();
 }
 
-// 關閉連接
-$conn = null;
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moli</title>
+</head>
+<body>
+    <a href="/moli_booking-main/moli_login/Logout.php">Logout</a>
+</body>
+</html>
