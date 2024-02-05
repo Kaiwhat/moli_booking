@@ -1,9 +1,9 @@
 <?php
 session_start();
-include "/moli_booking-main/moli_login/db_connect.php";
+include "../moli_login/db_connect.php";
 
 if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
-    header("Location: /moli_booking-main/moli_login/index.php");
+    header("Location: ../moli_login/index.php");
     exit();
 }
 
