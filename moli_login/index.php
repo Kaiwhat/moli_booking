@@ -101,8 +101,8 @@
             <span class="CloseButton" onclick="closeForm()" title="CloseOverlay">&#215</span>
             <form id="RootForm" action="Login.php" method="post">
                 <h1>管理者登入</h1>
-                <input id="Login-User" type="text" placeholder="Username:">
-                <input id="Login-Password" type="password" placeholder="Password:">
+                <input id="Login-User" type="text" placeholder="Username:" required>
+                <input id="Login-Password" type="password" placeholder="Password:" required>
                 <button id="Login-Submit" type="submit" name="submit">Send</button>
             </form>
         </div>

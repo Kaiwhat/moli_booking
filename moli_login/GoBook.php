@@ -1,7 +1,7 @@
 <?php
 
 session_start(); 
-include "db_connect.php";
+include "../moli_root/db_connect.php";
 
 try {
     // 獲取從表單 POST 過來的資料

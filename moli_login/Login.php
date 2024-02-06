@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "db_connect.php";
+include "../moli_root/db_connect.php";
 
 if(isset($_POST['username']) && isset($_POST['password'])) {
     function validate($data){
