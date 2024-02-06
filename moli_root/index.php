@@ -33,21 +33,39 @@ catch(PDOException $e) {
     <title>Moli</title>
 </head>
 <body>
+    <div class="navbar">
+        <h1>Hello Moli</h1>
+        <a href="/moli_booking-main/moli_login/Logout.php">Logout</a>  
+    </div>
     <div class="main">
         <div class="user-list">
-            <?php foreach ($result as $row): ?>
-                <div class="user">
-                    <span class="user-stuid"><?php echo $row['StuId']; ?></span>
-                    <span class="user-fromtime"><?php echo $row['FromTime']; ?></span>
-                    <span class="user-totime"><?php echo $row['ToTime']; ?></span>
-                    <span class="user-usefor"><?php echo $row['Use_for']; ?></span>
-                    <span class="user-email"><?php echo $row['Email']; ?></span>
-                    <span class="user-pass"><?php echo $row['Pass']; ?></span>
-                </div>
-            <?php endforeach; ?>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>From-time</th>
+                    <th>Due-time</th>
+                    <th>Usage</th>
+                    <th>Email</th>
+                    <th>Process</th>
+                    <th>Action</th>
+                </tr>
+                <?php foreach ($result as $row): ?>
+                    <tr>
+                        <td><?php echo $row['StuId']; ?></td>
+                        <td><?php echo $row['FromTime']; ?></td>
+                        <td><?php echo $row['ToTime']; ?></td>
+                        <td><?php echo $row['Use_for']; ?></td>
+                        <td><?php echo $row['Email']; ?></td>
+                        <td><?php echo $row['Pass']; ?></td>
+                        <td>
+                            <button id="Accept">Y</button>
+                            <button id="Reject">N</button>
+                            <button id="Reject">M</button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
         </div>
-
-        <a href="/moli_booking-main/moli_login/Logout.php">Logout</a>
     </div>
 
     <div class="calendar" id="calendar">
