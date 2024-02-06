@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-01-03 07:44:42
+-- 產生時間： 2024-02-06 16:48:20
 -- 伺服器版本： 10.4.32-MariaDB
--- PHP 版本： 8.0.30
+-- PHP 版本： 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -50,7 +50,12 @@ INSERT INTO `users` (`StuId`, `FromTime`, `ToTime`, `Use_for`, `Email`, `Pass`) 
 ('test7', '2024-01-03 14:43:00', '00:00:00', 'test7', 'test7@mail.com', '待審核'),
 ('test8', '2024-01-03 14:43:00', '00:00:00', 'test8', 'test8@mail.com', '待審核'),
 ('test9', '2024-01-03 14:43:00', '00:00:00', 'test9', 'test9@mail.com', '待審核'),
-('test10', '2024-01-03 14:44:00', '00:00:00', 'test10', 'test10@mail.com', '待審核');
+('test10', '2024-01-03 14:44:00', '00:00:00', 'test10', 'test10@mail.com', '待審核'),
+('test11', '2024-01-05 17:51:00', '12:00:00', 'test11', 'test11@mail.com', '待審核'),
+('test12', '2024-01-05 17:53:00', '12:00:00', 'teat', 'test12@mail.com', '待審核'),
+('111', '2024-02-05 13:39:00', '12:00:00', '111', '111@gmail.com', '待審核'),
+('1312', '2024-02-05 15:36:00', '12:00:00', '3213', '31312@gmail.com', '待審核'),
+('111213005', '2024-02-06 23:02:00', '12:00:00', 'test for final demonstration', 's111213005@mail.com', '待審核');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
