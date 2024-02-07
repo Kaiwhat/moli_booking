@@ -9,7 +9,7 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['user_name'])) {
 
 try {
     // Your SQL query
-    $query = "SELECT * FROM users WHERE Pass LIKE '待審核'";
+    $query = "SELECT * FROM users ORDER BY Pass";
     
     // Prepare the statement
     $stmt = $conn->prepare($query);
@@ -32,20 +32,24 @@ catch(PDOException $e) {
     <link rel="stylesheet" href="style.css">
     <title>Moli</title>
     <script>
-        function sendSQL(stuId) {
+        function sendSQL(stuId, process) {
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "UpdateStatus.php", true);
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        alert("SQL 指令已发送到服务器");
-                    } else {
+                        //alert("已更新審核結果");
+                        window.location.reload();
+                    } 
+                    /*
+                    else {
                         alert("请求失败：" + xhr.status);
                     }
+                    */
                 }
             };
-            xhr.send("stuId=" + stuId);
+            xhr.send("stuId=" + stuId+"&process=" + process);
         }
 
     </script>
@@ -78,14 +82,18 @@ catch(PDOException $e) {
                             <td><?php echo $row['Pass']; ?></td>
                             <td>
                                 <?php
+                                if ($row['Pass'] === "待審核") {
                                 // 将日期时间字符串转换为指定格式
                                     $fromTime = explode(" ", $row['FromTime']);
                                     $Thatdate = date('Ymd', strtotime($fromTime[0]));
                                     $NewFromTime = date('His', strtotime($fromTime[1]));
                                     $NewToTime = date('His', strtotime($row['ToTime']));
                                 ?>
-                                <a class="confirm-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Event&details=<?php echo $row['StuId'] . ' ' . $row['Use_for']; ?>&dates=<?php echo $Thatdate . 'T' . $NewFromTime . '/' . $Thatdate . 'T' . $NewToTime; ?>&location=Room237" onclick="sendSQL('<?php echo $row['StuId']; ?>')">Y</a>
-                                <button class="refused-btn">N</button>
+                                <a class="confirm-btn" onclick="sendSQL('<?php echo $row['StuId']; ?>', 0)"href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Event&details=<?php echo $row['StuId'] . ' ' . $row['Use_for']; ?>&dates=<?php echo $Thatdate . 'T' . $NewFromTime . '/' . $Thatdate . 'T' . $NewToTime; ?>&location=Room237">Y</a>
+                                <button class="refused-btn" onclick="sendSQL('<?php echo $row['StuId']; ?>', 1)">N</button>
+                                <?php }else{ ?>
+                                    <button class="change-btn" onclick="sendSQL('<?php echo $row['StuId']; ?>', 2)">O</button>
+                                <?php }?>
                             </td>
                         </tr>
                     </tbody>
